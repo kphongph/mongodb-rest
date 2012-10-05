@@ -1,18 +1,19 @@
 {
 	"db": {
-		"port": 27101,
-		"host": "flame.mongohq.com",
-		"username":"admin",
-		"password":"4dm1n"
+		"port": 27017,
+		"host": "10.10.20.75",
+                "auth": false,
+		"username":"",
+		"password":""
 	},
 	"server": {
-		"port": 3000,
-		"address": "0.0.0.0"
+		"port": 9000,
+		"address": "10.10.20.75"
 	},
 	"accessControl": {
 		"allowOrigin": "*",
 		"allowMethods": "GET,POST,PUT,DELETE,HEAD,OPTIONS"
 	},
-	"flavor": "nounderscore",
+	"flavor": "normal",
 	"debug": true
 }

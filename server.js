@@ -8,22 +8,23 @@
 */ 
 
 var fs = require("fs"),
-		sys = require("sys"),
+		sys = require("util"),
 		express = require('express');
 		
 var config = { "db": {
   'port': 27017,
-  'host': "localhost"
+  'host': "10.10.20.75"
   },
   'server': {
-    'port': 3000,
-    'address': "0.0.0.0"
+    'port': 9000,
+    'address': "10.10.20.75"
   },
   'flavor': "regular",
   'debug': true
 };
 
-var app = module.exports.app = express.createServer();
+//var app = module.exports.app = express.createServer();
+var app = module.exports.app = express();
 
 try {
   config = JSON.parse(fs.readFileSync(process.cwd()+"/config.json"));
@@ -47,7 +48,6 @@ app.configure(function(){
 });
 
 require('./lib/main');
-require('./lib/command');
 require('./lib/rest');
 
 if(!process.argv[2] || !process.argv[2].indexOf("expresso")) {
